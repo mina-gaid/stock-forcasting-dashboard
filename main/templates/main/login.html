@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Login | Sequence Control Panel</title>
+		{% include "head.html" %}
+	</head>
+	<body class="form">
+	
+	{% load staticfiles %}
+	
+	<!-- Header -->
+		{% include "nav.html" %}
+		 
+		<div class="container top-pad text-navy">
+
+			<div class="row">
+			
+				<br /><br /><br />
+
+				<div class="col-md-6 col-md-offset-3 col-xs-12">
+
+					<div class="panel panel-default">
+
+						<div class="panel-body bordered text-center">
+						
+							{% if form.errors %}
+								<p class="error">Sorry, thats not a valid username or password</p>
+							{% endif %}
+
+								<h2 class="text-navy">Log in securely</h2>
+
+								<br />
+								
+								<div class="col-md-6">
+									<a class="btn btn-block btn-lg btn-facebook" type="submit" href=""><i class="fa fa-facebook-official fa-2x"></i></a>
+								</div>
+								
+								<div class="col-md-6">
+									<a class="btn btn-block btn-lg btn-google" type="submit" href=""><i class="fa fa-google-plus fa-2x"></i></a>
+								</div>
+								
+								<hr />
+								
+								<div class="form-group text-left" id="login-form">
+									<form method="post" role="form" action={% url 'control-panel' %} enctype="multipart/form-data">{% csrf_token %}
+										<div class="form-group">
+											<label for="username">Username</label>
+											<input type="text" class="form-control" name="username" id="username" maxlength="30" placeholder="Username" required>
+										</div>
+
+										<div class="form-group">
+											<label for="password">Password</label>
+											<input type="password" class="form-control" name="password" id="password" maxlength="30" placeholder="Your Password" autocomplete="off" required>
+										</div>
+
+										<br/>
+
+										<button class="btn btn-primary btn-lg btn-block" id="login-btn" type="submit">Log in</button>
+									</form>
+									
+									<br/>
+									
+									<p class="text-center">Forgot your password? <a href="/password-reset">Click here</a></p>
+									<p class="text-center">Not a Member? <a href="/signup">Sign up here</a></p>
+
+								</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+	<!-- Footer -->
+		{% include "footer.html" %}
+		
+	</body>
+</html>

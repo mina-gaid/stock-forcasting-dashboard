@@ -1,0 +1,36 @@
+<div id="myModal" class="modal text-navy" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<h4 class="modal-title">We're Here To Help</h4>
+			</div>
+			<div class="modal-body text-center">
+				<p>Our Concierge team can help with last minute reservations or special requests.</p>
+				<p>Contact us:<br/>
+				<strong class="text-navy">Phone:</strong> 01 905 9056 | <strong class="text-navy">Email:</strong> support@scp.com</p>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<footer id="footer">
+	<ul class="icons">
+		<li><a href="https://www.facebook.com/Sequence-Control-Panel-640774146096513/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+		<li><a href="https://twitter.com/SequenceCP" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+		<li><a href="#" class="icon fa-linkedin"><span class="label">Linked-In</span></a></li>
+		<li><a data-toggle="modal" data-target="#myModal" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+	</ul>
+	<ul class="copyright">
+		<li>&copy; Sequence CP {% now "Y" %}</li><li><a href="/terms">Terms &amp; Conditions</a></li>
+	</ul>
+</footer>
+
+{% load staticfiles %}
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

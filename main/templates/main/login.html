@@ -42,20 +42,20 @@
 								<hr />
 								
 								<div class="form-group text-left" id="login-form">
-									<form method="post" role="form" action={% url 'control-panel' %} enctype="multipart/form-data">{% csrf_token %}
+									<form method="post" action="">{% csrf_token %}
 										<div class="form-group">
-											<label for="username">Username</label>
-											<input type="text" class="form-control" name="username" id="username" maxlength="30" placeholder="Username" required>
+											<label for="login_email">Email address</label>
+											<input type="email" class="form-control" name="login_email" id="login_email" placeholder="Your E-mail" required>
 										</div>
 
 										<div class="form-group">
-											<label for="password">Password</label>
-											<input type="password" class="form-control" name="password" id="password" maxlength="30" placeholder="Your Password" autocomplete="off" required>
+											<label for="login_password">Password</label>
+											<input type="password" class="form-control" name="login_password" id="login_password" placeholder="Your Password" autocomplete="off" required>
 										</div>
 
 										<br/>
 
-										<button class="btn btn-primary btn-lg btn-block" id="login-btn" type="submit">Log in</button>
+										<button class="btn btn-primary btn-lg btn-block" id="login-btn" onclick="login_manual('')">Log in</button>
 									</form>
 									
 									<br/>

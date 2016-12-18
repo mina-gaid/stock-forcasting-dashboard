@@ -1,0 +1,237 @@
+/* Global Styles */
+
+body {
+    margin-top: 100px;
+    background-color: #ECECEC;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+}
+
+a{
+    text-decoration: none !important;
+	outline: 0 !important;
+}
+
+@media(min-width:768px) {
+    body {
+        margin-top: 70px;
+    }
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 125px;
+    }
+
+    #page-wrapper {
+        padding: 10px;
+    }
+}
+
+/* Scrollbar - Chrome, Safari & IE only */
+
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2E3842;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+/* Top Navigation */
+
+.navbar{
+	border:none;
+	background-color:#2E3842;
+	color:#fff;
+	height: auto;
+}
+
+.navbar-brand{
+	background-color:#fff;
+	height: 60px;
+	width: 125px;
+}
+.navbar-inverse .navbar-brand {
+    color: #2E3842;
+}
+
+.navbar-brand:hover{
+	color: #fff !important;
+	background-color: #21B2A6 !important;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #2E3842;
+}
+
+.top-nav {
+    padding: 5px 25px;
+	color:#fff;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+	margin-right:20px;
+    color: #fff;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+        background-color: #21B2A6 !important;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.message-footer {
+    margin: 5px 0;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 60px;
+        left: 225px;
+        width: 125px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #fff;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+	.side-nav>li {
+		text-transform: capitalize;
+		border-radius: 0px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		position: relative;
+		outline: none;
+		border: 0;
+		line-height: 96px;
+    }
+
+    .side-nav>li>a {
+        width: 125px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+	
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+		color: #fff !important;
+		background-color: #21B2A6 !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+	.side-nav>li>a {    
+		color: #fff!important;
+		background-color:#2E3842;
+		margin-left:auto!important;
+		margin-right:auto!important;
+		width: 100%!important;
+		padding: 25px 0px 25px 0px!important;
+		height:108px;
+	}
+	
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+		color: #fff !important;
+		background-color: #21B2A6 !important;
+    }
+
+	
+}
+
+@media (max-width: 1670px) {
+	.side-nav>li>a {
+		width: 125px;
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+}

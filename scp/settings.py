@@ -31,10 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-	# My Apps
-	'main',
-	'dashboard',
-	# Third party apps
 	# Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	
+	# My Apps
+	'main',
+	'dashboard',
+	
+	# Third party apps
+	'django.contrib.sites',
+	'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # include the providers you want to enable:
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.gitlab',
+    # 'allauth.socialaccount.providers.linkedin',
+    # 'allauth.socialaccount.providers.linkedin_oauth2',
+    # 'allauth.socialaccount.providers.paypal',
+    # 'allauth.socialaccount.providers.slack',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -86,11 +101,6 @@ DATABASES = {
     }
 }
 
-# Registration settings
-
-ACCOUNT_ACTIVATION_DAYS = 7
-REGISTRATION_AUTO_LOGIN = True
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -127,6 +137,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# =============== custom settings ===============
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 2
+
+# Redirect user on login
+LOGIN_REDIRECT_URL = "/dashboard/control-panel/"
+
+# Registration settings
+
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
 
 # Registration email settings
 

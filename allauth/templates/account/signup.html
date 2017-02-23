@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	{% load i18n %}
+		<title>Sign up | Sequence Control Panel</title>
+		{% include "head.html" %}
+	</head>
+	<body class="form">
+	
+	{% load staticfiles %}
+	
+		<!-- Header -->
+			{% include "nav.html" %}
+
+		<div class="container top-pad text-navy">
+
+			<div class="row">
+			
+				<br /><br /><br />
+
+				<section class="signup-form hidden-element">
+					<div class="col-md-6 col-md-offset-3 col-xs-12">
+
+						<div class="panel panel-default">
+							<div class="panel-body bordered">
+
+								<div class="text-center text-navy">
+									<h2 class="text-navy">Sign Up</h2>
+									<h4 class="text-navy">Please sign up below before you start using SCP</h4>
+								</div>
+
+								<div class="row">
+									<div class="container-fluid" id="signup-form">
+										<form method="post" id="signup_form" action="{% url 'account_signup' %}" class="signup wide">
+										  {% csrf_token %}
+										  {{ form.as_p }}
+										  {% if redirect_field_value %}
+										  <br/>
+										  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+										  {% endif %}
+										  <button class="btn btn-primary btn-lg btn-block" id="signup-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
+										</form>
+										
+										<br/>
+										<div class="text-center">Or</div>
+										<br/>
+
+										<div class="col-md-6">
+											<a class="btn btn-block btn-lg btn-facebook" type="submit" href="/accounts/facebook/login/?process=login"><i class="fa fa-facebook-official fa-2x"></i></a>
+										</div>
+										
+										<div class="col-md-6">
+											<a class="btn btn-block btn-lg btn-google" type="submit" href="/accounts/google/login/?process=login"><i class="fa fa-google-plus fa-2x"></i></a>
+										</div>
+										
+										<hr/>
+										<p class="text-center">Already a member? <a href="{{ login_url }}">Log in here</a></p>
+
+									</div>
+									
+								</div>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</section>
+
+				<section class="signup-option">
+
+					<div class="col-md-6 col-md-offset-3 col-xs-12">
+						<div class="panel panel-default">
+							<div class="panel-body bordered text-center">
+								<h2 class="text-navy">Sign up</h2>
+								<h4 class="text-navy">Please select a sign up option</h4>
+									
+								<br/>
+
+								<div class="row">
+									<div class="col-md-6">
+										<a class="btn btn-block btn-lg btn-facebook" type="submit" href="/accounts/facebook/login/?process=login"><i class="fa fa-facebook-official fa-2x"></i></a>
+									</div>
+										
+									<div class="col-md-6">
+										<a class="btn btn-block btn-lg btn-google" type="submit" href="/accounts/google/login/?process=login"><i class="fa fa-google-plus fa-2x"></i></a>
+									</div>
+								</div>
+								
+								<br/>
+								<br/>
+								<div class="text-center">Or</div>
+								<br/><br/>
+									
+								<button class="btn btn-primary btn-lg btn-block" id="signup-email">Sign up with Email</button>
+								
+								<br/>
+								<br/>
+									
+								<p class="text-center">Already a member? <a href="{{ login_url }}">Log in here</a></p>
+								
+								<br/>
+								
+							</div>
+							
+						</div>
+
+					</div>
+
+				</section>
+
+			</div>
+			
+		</div>
+
+	<!-- Footer -->
+		{% include "footer.html" %}
+
+		<script>
+			$('#signup-email').click(function () {
+				$('.signup-option').hide();
+				$('.signup-form').show();
+			})
+		</script>
+
+	</body>
+</html>

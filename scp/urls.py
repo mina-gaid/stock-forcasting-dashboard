@@ -20,7 +20,7 @@ urlpatterns = [
 	# Django Apps
     url(r'^admin/', admin.site.urls),
 	# Third party apps
-	
+	url(r'^accounts/', include('allauth.urls')),
 	# My Apps
 	url(r'^', include('main.urls')),
 	url(r'^dashboard/', include('dashboard.urls')),

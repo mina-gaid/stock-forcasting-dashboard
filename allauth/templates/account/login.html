@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	{% load i18n %}
+	{% load account socialaccount %}
+		<title>Login | Sequence Control Panel</title>
+		{% include "head.html" %}
+	</head>
+	<body class="form">
+	
+	{% load staticfiles %}
+	
+	<!-- Header -->
+		{% include "nav.html" %}
+		 
+		<div class="container top-pad text-navy">
+
+			<div class="row">
+			
+				<br /><br /><br />
+
+				<div class="col-md-6 col-md-offset-3 col-xs-12">
+
+					<div class="panel panel-default">
+
+						<div class="panel-body bordered text-center">
+
+								<h2 class="text-navy">Log in securely</h2>
+
+								<br />
+								
+								<div class="col-md-6">
+									<a class="btn btn-block btn-lg btn-facebook" type="submit" href="/accounts/facebook/login/?process=login"><i class="fa fa-facebook-official fa-2x"></i></a>
+								</div>
+								
+								<div class="col-md-6">
+									<a class="btn btn-block btn-lg btn-google" type="submit" href="/accounts/google/login/?process=login"><i class="fa fa-google-plus fa-2x"></i></a>
+								</div>
+								
+								<hr />
+								
+								{% if form.errors %}
+									<p class="error">Sorry, thats not a valid username or password</p>
+								{% endif %}
+								
+								<div class="form-group text-left" id="login-form">
+									<form class="login" method="POST" action="{% url 'account_login' %}">
+										{% csrf_token %}
+										{{ form.as_p }}
+										{% if redirect_field_value %}
+										<input class="form-control" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+
+										<br/>
+										{% endif %}
+										
+										<button class="primaryAction btn btn-primary btn-lg btn-block" id="login-btn" type="submit">{% trans "Sign In" %}</button>
+									</form>
+									
+									<br/>
+									
+									<p class="text-center secondaryAction">Forgot your password? <a href="{% url 'account_reset_password' %}">{% trans "Click here" %}</a></p>
+									<p class="text-center">Not a Member? <a href="{{ signup_url }}">Sign up here</a></p>
+
+								</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+	<!-- Footer -->
+		{% include "footer.html" %}
+		
+	</body>
+</html>

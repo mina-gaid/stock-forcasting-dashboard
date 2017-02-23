@@ -22,7 +22,7 @@
 						Control Panel To Manage<br />
 						Your Stocks</p>
 						<ul class="actions">
-							<li><a href="signup" class="button special">Join Us</a></li>
+							<li><a href="{% url 'account_signup' %}" class="button special">Join Us</a></li>
 						</ul>
 					</div>
 					<a href="#one" class="more scrolly">Learn More</a>
@@ -75,7 +75,7 @@
 					<div class="inner">
 						<header class="major">
 							<h2>SCP is powered by Wall Street</h2>
-							<p>Our powerful analytics service is powered by Wall Street's Bloomberg financials.<br />
+							<p>Our powerful analytics service is powered by Wall Street's financial data.<br />
 							We use real-time trusted market data to help you invest safely and logically.</p>
 						</header>
 					</div>
@@ -89,8 +89,8 @@
 							<p>Get started today and join us for free or learn more about us and our analytics service.</p>
 						</header>
 						<ul class="actions vertical">
-							<li><a href="signup" class="button fit special">Join Us</a></li>
-							<li><a href="about" class="button fit">Learn More</a></li>
+							<li><a href="{% url 'account_signup' %}" class="button fit special">Join Us</a></li>
+							<li><a href="{% url 'about' %}" class="button fit">Learn More</a></li>
 						</ul>
 					</div>
 				</section>

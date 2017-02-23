@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	{% load i18n %}
+		<title>Logout | Sequence Control Panel</title>
+		{% include "head.html" %}
+	</head>
+	<body class="form">
+	
+	{% load staticfiles %}
+	
+	<!-- Header -->
+		{% include "nav.html" %}
+		 
+		<div class="container top-pad text-navy">
+
+			<div class="row">
+			
+				<br /><br /><br />
+
+				<div class="col-md-6 col-md-offset-3 col-xs-12">
+
+					<div class="panel panel-default">
+
+						<div class="panel-body bordered text-center">
+						
+							<h2 class="text-navy">Logout securely</h2>
+								<hr />
+							<p>{% trans 'Are you sure you want to sign out?' %}</p>	
+								
+							<div class="form-group text-left" id="login-form">
+								
+								<form method="post" action="{% url 'account_logout' %}">
+									{% csrf_token %}
+									{% if redirect_field_value %}
+									<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+									{% endif %}
+									<hr />
+									<button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Sign Out' %}</button>
+								</form>
+
+							</div>
+							
+							<br />
+							
+							<hr />
+							
+							<hr />
+							
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+	<!-- Footer -->
+		{% include "footer.html" %}
+		
+	</body>
+</html>

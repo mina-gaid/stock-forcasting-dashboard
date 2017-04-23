@@ -3,7 +3,6 @@
 $script = file_get_contents("js/scripts.js");
 $versionHash = hash('md5',$script);
 </script>
-
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/scripts.js?v=<?=$versionHash?>"></script>

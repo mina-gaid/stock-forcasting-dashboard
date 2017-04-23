@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Tables | Sequence Control Panel</title>
-	{% include "head-panel.html" %}	
-  </head>
-  <body>
-  {% load staticfiles %}
-    <div id="wrapper">
-	<!-- Header -->
-	{% include "nav-panel.html" %}
-      <div id="page-wrapper">
+    {% include "head-panel.html" %}
+</head>
+<body>
+{% load staticfiles %}
+<div id="wrapper">
+    <!-- Header -->
+    {% include "nav-panel.html" %}
+    <div id="page-wrapper">
         <div class="container-fluid">
-          <div class="full-pad">
-            <div class="row">
-              <div class="col-md-12 panel panel-default">
-                <h3>Type</h3>
-				<div class="text-center">
-					<p>Data goes here</p>
-				</div>
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-              </div>
+            <div class=row>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Retrieve stock forecasts.</div>
+                    <div class="panel-body">
+                        <form method="get" class="form-inline">
+                            <div class="form-group">
+                                <label for="stockName">Enter the stock code: </label>
+                                <input type="text" class="form-control" name="stockName" id="stockName"
+                                       placeholder="WIKI/GOOGL">
+                            </div>
+                            <button type="submit" class="btn btn-default">Search</button>
+                            <br>
+                            <br>
+                            <span>Suggestions:
+                            <a href="/dashboard/tables/?stockName=WIKI/GOOG">Google</a>
+                            <a href="/dashboard/tables/?stockName=WIKI/AAPL">Apple</a>
+                            <a href="/dashboard/tables/?stockName=WIKI/MSFT">Microsoft</a>
+							<a href="/dashboard/tables/?stockName=WIKI/FB">Facebook</a>
+                        </span>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-		  <!-- Footer -->
-			{% include "footer-panel.html" %}
+            {% if error %}
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> {{ error }}
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-md-12 panel panel-default">
+                        <h3>Stocks Forecast for {{ name }}</h3>
+                        <div class="text-center">
+                            {% autoescape off %}{{ prices }}{% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <!-- Footer -->
+            {% include "footer-panel.html" %}
         </div>
-      </div>
-      <!-- /#page-wrapper -->
     </div>
-    <!-- /#wrapper -->
-  </body>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+</body>
 </html>

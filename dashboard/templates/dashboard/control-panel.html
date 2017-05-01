@@ -14,11 +14,36 @@
             <div class="full-pad">
                 <div class="row">
                     <div class="panel panel-default">
+                        <div class="panel-heading">Search Organisations</div>
+                        <div class="panel-body">
+                            <form action="/dashboard/tickers/" method="get" class="form-inline">
+                                <div class="form-group">
+                                    <label for="ticker">Search organisations:&nbsp; &nbsp;</label>
+                                    <input type="text" class="form-control" name="ticker" id="ticker"
+                                           placeholder="Alphabet">
+                                </div>
+                                <button type="submit" class="btn btn-default">Search</button>
+								<br>
+                                <br>
+								<span>Suggestions:
+									<a href="/dashboard/tickers/?ticker=alphabet">Google</a>&nbsp;
+		                            <a href="/dashboard/tickers/?ticker=Apple">Apple</a>&nbsp;
+		                            <a href="/dashboard/tickers/?ticker=Microsoft">Microsoft</a>&nbsp;
+									<a href="/dashboard/tickers/?ticker=Facebook">Facebook</a>
+		                        </span>
+                            </form>
+							<br/>
+							<p><b>Note:</b> Use this to search for the Stock code of a publicly traded company</p>
+                        </div>
+                    </div>
+                </div>
+				<div class="row">
+                    <div class="panel panel-default">
                         <div class="panel-heading">Latest stock prices...</div>
                         <div class="panel-body">
                             <form method="get" class="form-inline">
                                 <div class="form-group">
-                                    <label for="stockName">Enter the stock code: </label>
+                                    <label for="stockName">Enter the stock code:&nbsp; &nbsp;</label>
                                     <input type="text" class="form-control" name="stockName" id="stockName"
                                            placeholder="WIKI/GOOGL">
                                 </div>
@@ -26,37 +51,29 @@
                                 <br>
                                 <br>
                                 <span>Suggestions:
-		                            <a href="/dashboard/control-panel/?stockName=WIKI/GOOG">Google</a>
-		                            <a href="/dashboard/control-panel/?stockName=WIKI/AAPL">Apple</a>
-		                            <a href="/dashboard/control-panel/?stockName=WIKI/MSFT">Microsoft</a>
+		                            <a href="/dashboard/control-panel/?stockName=WIKI/GOOG">Google</a>&nbsp;
+		                            <a href="/dashboard/control-panel/?stockName=WIKI/AAPL">Apple</a>&nbsp;
+		                            <a href="/dashboard/control-panel/?stockName=WIKI/MSFT">Microsoft</a>&nbsp;
 									<a href="/dashboard/control-panel/?stockName=WIKI/FB">Facebook</a>
 		                        </span>
                             </form>
+							<br/>
+							<p><b>Note:</b> The tag <i>"WIKI/"</i> most be included when searching</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+				{% if error %}
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> {{ error }}
+                </div>
+				{% else %}
+				<div class="row">
                     <div class="panel panel-default">
                         <div class="panel-heading">{{ stock_name }}</div>
                         <div class="panel-body">
                             <div class="text-center">
                                 {% autoescape off %}{{ table }}{% endautoescape %}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Search Organisations</div>
-                        <div class="panel-body">
-                            <form action="/dashboard/tickers/" method="get" class="form-inline">
-                                <div class="form-group">
-                                    <label for="ticker">Search organisations</label>
-                                    <input type="text" class="form-control" name="ticker" id="ticker"
-                                           placeholder="alphabet">
-                                </div>
-                                <button type="submit" class="btn btn-default">Search</button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -74,6 +91,7 @@
                         </div>
                     </div>
                 </div>
+				{% endif %}
             </div>
             <!-- Footer -->
             {% include "footer-panel.html" %}

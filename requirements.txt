@@ -1,0 +1,7 @@
+numpy==1.11.1
+matplotlib==1.5.3
+scikit-learn==0.17.1
+scipy==0.18.1
+Quandl==3.0.1
+Django==1.10.5
+django-allauth==0.30.0

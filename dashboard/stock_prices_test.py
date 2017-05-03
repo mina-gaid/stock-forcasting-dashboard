@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 
 def stock_prices(stock='WIKI/GOOGL'):
     auth_tok = ("DieXgiWyjrFVyh3EdxjG")
-    df = quandl.get(stock, authtoken=auth_tok)
+    df = quandl.get(stock, trim_start="2015-06-03", trim_end="2016-12-30", authtoken=auth_tok)
     print(df.columns.values)
     df = df[['Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume', ]]
     df['HL_PCT'] = (df['Adj. High'] - df['Adj. Close']) / df['Adj. Close'] * 100.0

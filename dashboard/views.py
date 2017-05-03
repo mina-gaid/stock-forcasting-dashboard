@@ -49,7 +49,7 @@ def panel(request):
     else:
         stock_name = 'WIKI/GOOGL'
 
-    df = quandl.get(stock_name, start_date=week_ago, end_date=today)
+    df = quandl.get(stock_name, start_date=week_ago, end_date=today, authtoken=auth_tok)
     df = df[['Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume', ]]
     table = df.tail().to_html(classes="table table-bordered table-responsive", border=0)
     return render(request, 'dashboard/control-panel.html', {'table': table, 'stock_name': stock_name})
@@ -72,7 +72,7 @@ def tables(request):
 def charts(request):
     if request.GET.get('stockName'):
         stock_name = request.GET.get('stockName')
-        df = quandl.get(stock_name, authtoken=auth_tok)
+        df = quandl.get(stock_name, trim_start="2015-06-03", trim_end="2016-12-30", authtoken=auth_tok)
         df = df[['Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume', ]]
         df['Adj. Open'].plot()
         df['Adj. Close'].plot()

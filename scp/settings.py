@@ -48,15 +48,8 @@ INSTALLED_APPS = [
 	'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # include the providers you want to enable:
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.github',
-    # 'allauth.socialaccount.providers.gitlab',
-    # 'allauth.socialaccount.providers.linkedin',
-    # 'allauth.socialaccount.providers.linkedin_oauth2',
-    # 'allauth.socialaccount.providers.paypal',
-    # 'allauth.socialaccount.providers.slack',
 ]
 
 MIDDLEWARE_CLASSES = [

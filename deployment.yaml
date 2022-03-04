@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-forcasting-dashboard
+spec:
+  selector:
+    matchLabels:
+      app: stock-forcasting-dashboard
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: stock-forcasting-dashboard
+        version: v1
+    spec:
+      containers:
+        - name: stock-forcasting-dashboard
+          image: __IMAGE__
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+      serviceAccountName: stock-forcasting-dashboard-pipeline-runner
+      serviceAccount: stock-forcasting-dashboard-pipeline-runner
+#test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stock-forcasting-dashboard-service
+spec:
+  selector:
+    app: stock-forcasting-dashboard
+  ports:
+    - port: 8000
+      name: http

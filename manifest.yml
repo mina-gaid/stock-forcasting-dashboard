@@ -1,0 +1,6 @@
+applications:
+  - name:
+    memory: 500M
+    disk_quota: 500M
+    route:
+    command: python manage.py collectstatic --noinput && gunicorn stock-forcasting-dashboard.wsgi:application

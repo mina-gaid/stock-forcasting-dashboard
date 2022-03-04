@@ -1,0 +1,1 @@
+web: gunicorn stock-forcasting-dashboard.wsgi:application --log-file -

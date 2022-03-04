@@ -1,6 +1,8 @@
 # Description
 
-A simple stock forecasting Web application that uses common statistical forecasting algorithms to predect gains and losses of fortune 500 companies. Forecasts are estimates only, based on historical data.
+A simple stock forecasting Web application that uses common statistical forecasting algorithms to predect gains and losses of fortune 500 companies. Relevant data visualization is generated from forecast data.
+
+Forecasts are estimates only, based on historical data.
 
 ---
 

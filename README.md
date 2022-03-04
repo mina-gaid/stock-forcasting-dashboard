@@ -1,6 +1,6 @@
 # Description
 
-A simple stock forecasting Web application that uses common statistical forecasting algorithms to predect gains and losses of fortune 500 companies. Forcasts are estamtes only, based on histrical data.
+A simple stock forecasting Web application that uses common statistical forecasting algorithms to predect gains and losses of fortune 500 companies. Forecasts are estimates only, based on historical data.
 
 ---
 
@@ -206,5 +206,3 @@ Done!
 ## OpenShift
 
 For Instructions to dockerize and deploy the application into OpenShift, please see relevant documentation on redhat.com.
-
----
